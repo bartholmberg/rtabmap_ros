@@ -11,7 +11,7 @@ endif (POLICY CMP0043)
 if (POLICY CMP0042)
     cmake_policy(SET CMP0042 OLD)
 endif (POLICY CMP0042)
-
+message(STATUS  "1  rtbm" )
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
@@ -31,6 +31,7 @@ find_package(find_object_2d)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
+message(WARNING  "1.4  rtbm  ==============>" )
 find_package(RTABMap 0.20.9 REQUIRED)
 
 find_package(OpenCV REQUIRED)
@@ -82,6 +83,7 @@ ENDIF(RTABMAP_GUI OR rviz_FOUND)
 ## modules and global scripts declared therein get installed
 ## See http://ros.org/doc/api/catkin/html/user_guide/setup_dot_py.html
 catkin_python_setup()
+message(STATUS  "1.5  rtbm  ==============>" )
 
 #######################################
 ## Declare ROS messages and services ##
@@ -192,7 +194,10 @@ SET(Libraries
    ${catkin_LIBRARIES}
    ${RTABMap_LIBRARIES}
 )
- 
+message(STATUS  "1.3   RTABLIBS  ${RTABMap_LIBRARIES}") 
+message(STATUS  "1.3   catkinlibs  ${catkin_LIBRARIES}") 
+message(STATUS  "1.3   pcllibs  ${PCL_LIBRARIES}") 
+message(STATUS  "1.3   opencvlibs  ${OpenCV_LIBRARIES}") 
 SET(rtabmap_sync_lib_src
    src/CommonDataSubscriber.cpp
    src/impl/CommonDataSubscriberDepth.cpp
@@ -609,7 +614,7 @@ IF(rviz_FOUND)
        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
     )
 ENDIF(rviz_FOUND)
-
+message(WARNING  "2  rtbm ${CATKIN_PACKAGE_SHARE_DESTINATION}" )
 IF(costmap_2d_FOUND)
     install(TARGETS 
        rtabmap_costmap_plugins
@@ -624,7 +629,7 @@ IF(costmap_2d_FOUND)
        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
     )
 ENDIF(costmap_2d_FOUND)
-
+message(WARNING  "3  rtbm" )
 #############
 ## Testing ##
 #############
